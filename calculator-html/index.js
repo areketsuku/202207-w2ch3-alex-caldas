@@ -32,7 +32,6 @@ function operation(i) {
       break;
     case "B":
       if (!number) {
-        null;
       } else {
         number = number.slice(0, number.length - 1);
       }
