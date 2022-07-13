@@ -129,7 +129,6 @@ const revisaSiFaltanPreguntas = function () {
       "Fin del juego! Pulsa aceptar para ver tus resultados en la consola."
     );
     checkRanking();
-    return;
   }
 };
 const partida = function () {
@@ -155,7 +154,7 @@ const respuestaEnd = function () {
 const checkRanking = function () {
   console.log("\n Puntuación: " + points + "\n\n");
   if (toRanking) {
-    for (i = 0; i < ranking.length; i++) {
+    for (let i = 0; i < ranking.length; i++) {
       if (ranking[i].points <= points) {
         ranking.splice(i, 0, { name: user, points: points });
         console.table(ranking);
