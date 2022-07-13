@@ -119,6 +119,9 @@ const ronda = function () {
       });
     }
   }
+  revisaSiFaltanPreguntas();
+};
+const revisaSiFaltanPreguntas = function () {
   if (faltanPreguntas) {
     faltanPreguntas = false;
   } else {
@@ -128,7 +131,6 @@ const ronda = function () {
     checkRanking();
   }
 };
-
 const partida = function () {
   faltanPreguntas = false;
   points = 0;
