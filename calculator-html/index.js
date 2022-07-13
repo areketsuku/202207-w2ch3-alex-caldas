@@ -18,7 +18,6 @@ $(":button").click(function () {
 function refresh() {
   $("#calculation").html(ans + " " + operand);
   $("#number").html(number);
-  //$('#number').html(Intl.NumberFormat(undefined, {notation: "scientific"}).format(number));
   result = "";
 }
 
