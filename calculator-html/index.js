@@ -174,7 +174,7 @@ function operation(i) {
       refresh();
       break;
     case "=":
-      if (ans || ans === 0) {
+      if (ans || ans == 0) {
         if (operand) {
           if (number) {
             calculation();
