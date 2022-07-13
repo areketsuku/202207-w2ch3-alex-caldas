@@ -150,8 +150,7 @@ const matematicAdd = function () {
   refresh();
 };
 const matematicDot = function () {
-  if (number.includes(".")) {
-  } else if (number) {
+  if (number.includes(".") && number) {
     number += ".";
   } else {
     number = "0.";
