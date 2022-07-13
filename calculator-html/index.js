@@ -165,7 +165,12 @@ function operation(i) {
       }
       break;
     case ".":
-      number.includes(".") ? null : number ? (number += ".") : (number = "0.");
+      if (number.includes(".")) {
+      } else if (number) {
+        number += ".";
+      } else {
+        number = "0.";
+      }
       refresh();
       break;
     case "=":
