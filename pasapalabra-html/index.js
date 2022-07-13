@@ -118,8 +118,8 @@ const ronda = function () {
         }
       });
     }
+    revisaSiFaltanPreguntas();
   }
-  revisaSiFaltanPreguntas();
 };
 const revisaSiFaltanPreguntas = function () {
   if (faltanPreguntas) {
@@ -129,6 +129,7 @@ const revisaSiFaltanPreguntas = function () {
       "Fin del juego! Pulsa aceptar para ver tus resultados en la consola."
     );
     checkRanking();
+    return;
   }
 };
 const partida = function () {
