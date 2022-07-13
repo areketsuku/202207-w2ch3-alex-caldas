@@ -130,34 +130,24 @@ const matematicSubstract = function () {
 };
 const matematicAdd = function () {
   if (ans || ans == 0) {
-    if (operand) {
-      if (number) {
-        calculation();
-        ans = result;
-        number = "";
-        operand = "+";
-        refresh();
-      } else {
-        operand = "+";
-        refresh();
-      }
+    if (operand && number) {
+      calculation();
+      ans = result;
+      number = "";
+      operand = "+";
     } else {
       operand = "+";
-      refresh();
     }
   } else {
     if (operand) {
       alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else {
-      if (number) {
-        ans = Number(number);
-        number = "";
-        operand = "+";
-        refresh();
-      } else {
-      }
+    } else if (number) {
+      ans = Number(number);
+      number = "";
+      operand = "+";
     }
   }
+  refresh();
 };
 const matematicDot = function () {
   if (number.includes(".")) {
