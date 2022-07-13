@@ -60,7 +60,7 @@ $(window).resize(() => {
   calculCercle();
 });
 
-function calculCercle() {
+const calculCercle = function () {
   for (let i = 0; i < 28; i++) {
     let x =
       window.innerWidth / 2 +
@@ -73,14 +73,14 @@ function calculCercle() {
       .eq(i)
       .css({ left: x, top: y, transform: "translate(-50%,-50%)" });
   }
-}
+};
 
-function nuevoNumPreguntas() {
+const nuevoNumPreguntas = function () {
   numPreguntas++;
   if (numPreguntas === 4) {
     numPreguntas = 0;
   }
-}
+};
 
 //Triggers
 
@@ -90,15 +90,15 @@ $("#intro").click(function () {
   partida();
 });
 
-function partida() {
+const partida = function () {
   faltanPreguntas = false;
   points = 0;
   toRanking = true;
   nuevoNumPreguntas();
   ronda();
 
-  function ronda() {
-    for (i = 0; i < questions.length; i++) {
+  const ronda = function () {
+    for (let i = 0; i < questions.length; i++) {
       if (questions[i][numPreguntas].status === 0) {
         faltanPreguntas = true;
         $("#pregunta").html(questions[i][numPreguntas].question);
@@ -106,20 +106,13 @@ function partida() {
           if (e.wich == 13) {
             switch ($("#resposta").val()) {
               case questions[i][numPreguntas].answer:
-                questions[i][numPreguntas].status = 1;
-                points++;
-                alert("Correcto!");
+                respuestaCorrecta();
                 break;
               case "pasapalabra":
                 alert("pasapalabra!");
                 break;
               case "end":
-                toRanking = false;
-                alert("Juego cerrado.\n\n Puntuación: " + points + "\n\n");
-                checkRanking();
-                if (confirm("Quieres jugar de nuevo?")) {
-                  partida();
-                }
+                respuestaEnd();
                 return;
               default:
                 questions[i][numPreguntas].status = 2;
@@ -143,10 +136,22 @@ function partida() {
       );
       checkRanking();
     }
+  };
+};
+const respuestaCorrecta = function () {
+  questions[i][numPreguntas].status = 1;
+  points++;
+  alert("Correcto!");
+};
+const respuestaEnd = function () {
+  toRanking = false;
+  alert("Juego cerrado.\n\n Puntuación: " + points + "\n\n");
+  checkRanking();
+  if (confirm("Quieres jugar de nuevo?")) {
+    partida();
   }
-}
-
-function checkRanking() {
+};
+const checkRanking = function () {
   console.log("\n Puntuación: " + points + "\n\n");
   if (toRanking) {
     for (i = 0; i < ranking.length; i++) {
@@ -164,4 +169,4 @@ function checkRanking() {
   if (confirm("Quieres jugar de nuevo?")) {
     partida();
   }
-}
+};
