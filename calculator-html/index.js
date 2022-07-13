@@ -75,14 +75,12 @@ const matematicDivide = function () {
     } else {
       operand = "/";
     }
-  } else {
-    if (operand) {
-      alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else if (number) {
-      ans = Number(number);
-      number = "";
-      operand = "/";
-    }
+  } else if (operand) {
+    alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
+  } else if (number) {
+    ans = Number(number);
+    number = "";
+    operand = "/";
   }
   refresh();
 };
@@ -96,14 +94,12 @@ const matematicMultiply = function () {
     } else {
       operand = "*";
     }
-  } else {
-    if (operand) {
-      alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else if (number) {
-      ans = Number(number);
-      number = "";
-      operand = "*";
-    }
+  } else if (operand) {
+    alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
+  } else if (number) {
+    ans = Number(number);
+    number = "";
+    operand = "*";
   }
   refresh();
 };
@@ -117,14 +113,12 @@ const matematicSubstract = function () {
     } else {
       operand = "-";
     }
-  } else {
-    if (operand) {
-      alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else if (number) {
-      ans = Number(number);
-      number = "";
-      operand = "-";
-    }
+  } else if (operand) {
+    alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
+  } else if (number) {
+    ans = Number(number);
+    number = "";
+    operand = "-";
   }
   refresh();
 };
@@ -138,14 +132,12 @@ const matematicAdd = function () {
     } else {
       operand = "+";
     }
-  } else {
-    if (operand) {
-      alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else if (number) {
-      ans = Number(number);
-      number = "";
-      operand = "+";
-    }
+  } else if (operand) {
+    alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
+  } else if (number) {
+    ans = Number(number);
+    number = "";
+    operand = "+";
   }
   refresh();
 };
@@ -159,26 +151,17 @@ const matematicDot = function () {
 };
 const matematicEqual = function () {
   if (ans || ans == 0) {
-    if (operand) {
-      if (number) {
-        calculation();
-        $("#calculation").html(ans + " " + operand + " " + number + " =");
-        $("#number").html(result);
-      } else {
-      }
-    } else {
+    if (operand && number) {
+      calculation();
+      $("#calculation").html(ans + " " + operand + " " + number + " =");
+      $("#number").html(result);
     }
-  } else {
-    if (operand) {
-      alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else {
-      if (number) {
-        ans = number;
-        number = "";
-        refresh();
-      } else {
-      }
-    }
+  } else if (operand) {
+    alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
+  } else if (number) {
+    ans = number;
+    number = "";
+    refresh();
   }
 };
 const calculation = function () {
