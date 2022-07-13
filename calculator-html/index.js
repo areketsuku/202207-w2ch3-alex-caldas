@@ -67,20 +67,13 @@ const matematicBack = function () {
 };
 const matematicDivide = function () {
   if (ans || ans == 0) {
-    if (operand) {
-      if (number) {
-        calculation();
-        ans = result;
-        number = "";
-        operand = "/";
-        refresh();
-      } else {
-        operand = "/";
-        refresh();
-      }
+    if (operand && number) {
+      calculation();
+      ans = result;
+      number = "";
+      operand = "/";
     } else {
       operand = "/";
-      refresh();
     }
   } else {
     if (operand) {
@@ -90,11 +83,10 @@ const matematicDivide = function () {
         ans = Number(number);
         number = "";
         operand = "/";
-        refresh();
-      } else {
       }
     }
   }
+  refresh();
 };
 const matematicMultiply = function () {
   if (ans || ans == 0) {
