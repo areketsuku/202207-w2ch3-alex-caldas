@@ -90,53 +90,51 @@ $("#intro").click(function () {
   partida();
 });
 
+const ronda = function () {
+  for (let i = 0; i < questions.length; i++) {
+    if (questions[i][numPreguntas].status === 0) {
+      faltanPreguntas = true;
+      $("#pregunta").html(questions[i][numPreguntas].question);
+      $("#resposta").on("keypress", function (e) {
+        if (e.wich == 13) {
+          switch ($("#resposta").val()) {
+            case questions[i][numPreguntas].answer:
+              respuestaCorrecta();
+              break;
+            case "pasapalabra":
+              alert("pasapalabra!");
+              break;
+            case "end":
+              respuestaEnd();
+              return;
+            default:
+              questions[i][numPreguntas].status = 2;
+              alert(
+                "Respuesta erronea! La respuesta correcta es '" +
+                  questions[i][numPreguntas].answer +
+                  "'"
+              );
+          }
+        }
+      });
+    }
+  }
+  if (faltanPreguntas) {
+    faltanPreguntas = false;
+  } else {
+    alert(
+      "Fin del juego! Pulsa aceptar para ver tus resultados en la consola."
+    );
+    checkRanking();
+  }
+};
+
 const partida = function () {
   faltanPreguntas = false;
   points = 0;
   toRanking = true;
   nuevoNumPreguntas();
   ronda();
-
-  const ronda = function () {
-    for (let i = 0; i < questions.length; i++) {
-      if (questions[i][numPreguntas].status === 0) {
-        faltanPreguntas = true;
-        $("#pregunta").html(questions[i][numPreguntas].question);
-        $("#resposta").on("keypress", function (e) {
-          if (e.wich == 13) {
-            switch ($("#resposta").val()) {
-              case questions[i][numPreguntas].answer:
-                respuestaCorrecta();
-                break;
-              case "pasapalabra":
-                alert("pasapalabra!");
-                break;
-              case "end":
-                respuestaEnd();
-                return;
-              default:
-                questions[i][numPreguntas].status = 2;
-                alert(
-                  "Respuesta erronea! La respuesta correcta es '" +
-                    questions[i][numPreguntas].answer +
-                    "'"
-                );
-            }
-          }
-        });
-      }
-    }
-
-    if (faltanPreguntas) {
-      faltanPreguntas = false;
-      //ronda();
-    } else {
-      alert(
-        "Fin del juego! Pulsa aceptar para ver tus resultados en la consola."
-      );
-      checkRanking();
-    }
-  };
 };
 const respuestaCorrecta = function () {
   questions[i][numPreguntas].status = 1;
