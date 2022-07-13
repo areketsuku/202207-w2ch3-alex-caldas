@@ -15,6 +15,13 @@ $(":button").click(function () {
   }
 });
 
+function refresh() {
+  $("#calculation").html(ans + " " + operand);
+  $("#number").html(number);
+  //$('#number').html(Intl.NumberFormat(undefined, {notation: "scientific"}).format(number));
+  result = "";
+}
+
 function operation(i) {
   switch (i) {
     case "A":
@@ -24,8 +31,14 @@ function operation(i) {
       refresh();
       break;
     case "B":
-      !number ? null : (number = number.slice(0, number.length - 1));
-      number === "0" ? (number = "") : null;
+      if (!number) {
+        null;
+      } else {
+        number = number.slice(0, number.length - 1);
+      }
+      if (number === "0") {
+        number = "";
+      }
       refresh();
       break;
     case "/":
@@ -182,13 +195,6 @@ function operation(i) {
       break;
     default:
   }
-}
-
-function refresh() {
-  $("#calculation").html(ans + " " + operand);
-  $("#number").html(number);
-  //$('#number').html(Intl.NumberFormat(undefined, {notation: "scientific"}).format(number));
-  result = "";
 }
 
 function calculation() {
