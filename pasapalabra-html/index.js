@@ -84,7 +84,7 @@ function nuevoNumPreguntas() {
 
 //Triggers
 
-$("#intro").click(function (e) {
+$("#intro").click(function () {
   user = $("#resposta").val();
   $("#intro").css("visibility", "hidden");
   partida();
