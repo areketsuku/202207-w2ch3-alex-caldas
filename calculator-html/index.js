@@ -78,46 +78,34 @@ const matematicDivide = function () {
   } else {
     if (operand) {
       alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else {
-      if (number) {
-        ans = Number(number);
-        number = "";
-        operand = "/";
-      }
+    } else if (number) {
+      ans = Number(number);
+      number = "";
+      operand = "/";
     }
   }
   refresh();
 };
 const matematicMultiply = function () {
   if (ans || ans == 0) {
-    if (operand) {
-      if (number) {
-        calculation();
-        ans = result;
-        number = "";
-        operand = "*";
-        refresh();
-      } else {
-        operand = "*";
-        refresh();
-      }
+    if (operand && number) {
+      calculation();
+      ans = result;
+      number = "";
+      operand = "*";
     } else {
       operand = "*";
-      refresh();
     }
   } else {
     if (operand) {
       alert("OJU!! NO HI POT HAVER OPERAND SENSE ANS!");
-    } else {
-      if (number) {
-        ans = Number(number);
-        number = "";
-        operand = "*";
-        refresh();
-      } else {
-      }
+    } else if (number) {
+      ans = Number(number);
+      number = "";
+      operand = "*";
     }
   }
+  refresh();
 };
 const matematicSubstract = function () {
   if (ans || ans == 0) {
