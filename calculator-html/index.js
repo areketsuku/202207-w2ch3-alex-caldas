@@ -57,8 +57,7 @@ const matematicAllClear = function () {
   refresh();
 };
 const matematicBack = function () {
-  if (!number) {
-  } else {
+  if (number) {
     number = number.slice(0, number.length - 1);
   }
   if (number === "0") {
